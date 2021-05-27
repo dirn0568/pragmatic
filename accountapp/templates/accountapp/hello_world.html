@@ -7,7 +7,7 @@
             testing
         </h1>
 
-        <form action="/account/hello_world/" method="post">
+        <form action="/account/hello_world/" method="POST">
             {% csrf_token %}
             <input type="submit" class="btn btn-primary" value="POST">
         </form>
@@ -15,6 +15,7 @@
         <h1>
             {{ text }}
         </h1>
+
     </div>
 
 {% endblock %}

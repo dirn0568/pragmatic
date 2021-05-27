@@ -9,7 +9,7 @@ def hello_world(request):
     if request.method == "POST":
         return render(request, 'accountapp/hello_world.html', context={'text': 'POST METHOD!!!'})
     else:
-        return render(request, 'accountapp/hello_world.html', context={'GET': 'POST METHOD!!!'})
+        return render(request, 'accountapp/hello_world.html', context={'text': 'GET METHOD!!!'})
 
 '''def hello_world(request):
     return HttpResponse('Hello world!')'''
