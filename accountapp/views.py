@@ -10,7 +10,6 @@ from django.views.generic import CreateView
 
 from accountapp.models import HelloWorld
 
-
 def hello_world(request):
 
     if request.method == "POST":
