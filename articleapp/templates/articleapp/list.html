@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<style>
+
+    .container div {
+      width: 250px;
+      background-color: antiquewhite;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      border-radius: 1rem;
+    }
+
+    <!-- 컨테이너 안에있는 이미지 -->
+    <!-- 해결책 인지 잘모르겠음 주석문을 {} 중괄호로 감싸기? 오류가 사라지긴함 -->
+
+    .container img {
+      width: 100%;
+      border-radius: 1rem;
+    }
+
+</style>
+
+
+    <div class="container">
+      <div class="item1">
+        <img src="https://picsum.photos/200/300" alt="">
+      </div>
+      <div>
+        <img src="https://picsum.photos/200/348" alt="">
+      </div>
+      <div>
+        <img src="https://picsum.photos/200/268" alt="">
+      </div>
+      <div>
+        <img src="https://picsum.photos/200/400" alt="">
+      </div>
+      <div>
+        <img src="https://picsum.photos/200/518" alt="">
+      </div>
+      <div>
+        <img src="https://picsum.photos/200/300" alt="">
+      </div>
+      <div>
+        <img src="https://picsum.photos/200/250" alt="">
+      </div>
+      <div>
+        <img src="https://picsum.photos/200/200" alt="">
+      </div>
+      <div>
+        <img src="https://picsum.photos/200/448" alt="">
+      </div>
+      <div>
+        <img src="https://picsum.photos/200/328" alt="">
+      </div>
+      <div>
+        <img src="https://picsum.photos/200/298" alt="">
+      </div>
+      <div>
+        <img src="https://picsum.photos/200/448" alt="">
+      </div>
+      <div>
+        <img src="https://picsum.photos/200/300" alt="">
+      </div>
+    </div>
+
+    <script src="{% static 'js/magicgrid.js' %}"></script>
+
+
+
+{% endblock %}
