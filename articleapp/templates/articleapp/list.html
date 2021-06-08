@@ -22,51 +22,25 @@
       width: 100%;
       border-radius: 1rem;
     }
-
+<!--{% include 'snippets/card.html' with article=article %} 뭔 뜻인지 모르겠음-->
+<!--pagination을 쓰면 page_obj가 기본 제공-->
 </style>
-
-
+    {% if article_list %}
     <div class="container">
-      <div class="item1">
-        <img src="https://picsum.photos/200/300" alt="">
-      </div>
-      <div>
-        <img src="https://picsum.photos/200/348" alt="">
-      </div>
-      <div>
-        <img src="https://picsum.photos/200/268" alt="">
-      </div>
-      <div>
-        <img src="https://picsum.photos/200/400" alt="">
-      </div>
-      <div>
-        <img src="https://picsum.photos/200/518" alt="">
-      </div>
-      <div>
-        <img src="https://picsum.photos/200/300" alt="">
-      </div>
-      <div>
-        <img src="https://picsum.photos/200/250" alt="">
-      </div>
-      <div>
-        <img src="https://picsum.photos/200/200" alt="">
-      </div>
-      <div>
-        <img src="https://picsum.photos/200/448" alt="">
-      </div>
-      <div>
-        <img src="https://picsum.photos/200/328" alt="">
-      </div>
-      <div>
-        <img src="https://picsum.photos/200/298" alt="">
-      </div>
-      <div>
-        <img src="https://picsum.photos/200/448" alt="">
-      </div>
-      <div>
-        <img src="https://picsum.photos/200/300" alt="">
-      </div>
+      {% for article in article_list %}
+      <a href="{% url 'articleapp:detail' pk=article.pk %}">
+          {% include 'snippets/card.html' with article=article %}
+      </a>
+      {% endfor %}
     </div>
+    <script src="{% static 'js/magicgrid.js' %}"></script>
+    {% else %}
+    <div class="text-center">
+        <h1>No Articles YET!</h1>
+    </div>
+    {% endif %}
+
+    {% include 'snippets/pagination.html' with page_obj=page_obj %}
 
     <div style="text-align: center">
       <a href="{% url 'articleapp:create' %}" class="btn btn-dark rounded-pill col-3 mt-3 mb-3">
@@ -74,7 +48,7 @@
       </a>
     </div>
 
-    <script src="{% static 'js/magicgrid.js' %}"></script>
+
 
 
 
