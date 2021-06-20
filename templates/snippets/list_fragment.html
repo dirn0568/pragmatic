@@ -1,0 +1,55 @@
+{% load static %}
+
+
+<style>
+
+    .container {
+        padding: 0;
+        margin: 0, auto;
+    }
+
+    .container a {
+        width: 45%;
+        max-width: 250px;
+    }
+
+    .container div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      border-radius: 1rem;
+    }
+
+    /* 컨테이너 안에있는 이미지 */
+    /* style은 css? css의 주석은 이줄에 쓰인 주석임 */
+
+    .container img {
+      width: 100%;
+      border-radius: 1rem;
+    }
+    /*{% include 'snippets/card.html' with article=article %} 뭔 뜻인지 모르겠음*/
+    /*pagination을 쓰면 page_obj가 기본 제공*/
+</style>
+    {% if article_list %}
+    <div class="container">
+      {% for article in article_list %}
+      <a href="{% url 'articleapp:detail' pk=article.pk %}">
+          {% include 'snippets/card.html' with article=article %}
+      </a>
+      {% endfor %}
+    </div>
+    <script src="{% static 'js/magicgrid.js' %}"></script>
+    {% else %}
+    <div class="text-center">
+        <h1>No Articles YET!</h1>
+    </div>
+    {% endif %}
+
+    {% include 'snippets/pagination.html' with page_obj=page_obj %}
+
+    <div style="text-align: center">
+      <a href="{% url 'articleapp:create' %}" class="btn btn-dark rounded-pill mt-3 mb-3 px-3">
+        Create Article
+      </a>
+    </div>
