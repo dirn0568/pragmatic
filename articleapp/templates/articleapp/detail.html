@@ -16,9 +16,10 @@
             <img style="width: 100%; border-radius: 1rem; margin: 2rem 0;"
                     src="{{ target_article.image.url }}" alt="">
 
-            <p>
-                {{ target_article.content }}
-            </p>
+            <!-- safe를 넣으면 불필요한 html 태그들이 보일때 태그들을 제거해줌 -->
+            <div class="text-left">
+                {{ target_article.content | safe }}
+            </div>
 
             {% if target_article.writer == user %}
             <a href="{% url 'articleapp:update' pk=target_article.pk %}"

@@ -282,10 +282,14 @@ let magicGrid = new MagicGrid({
   useMin: true
 });
 
-//masonrys라는 변수에 html 안에 있는 모든 img태그들을 불러오는것
+/**
+* masonrys라는 변수에 html 안에 있는 모든 img태그들을 불러오는것
+*/
 var masonrys = document.getElementsByTagName("img");
 
-//masonrys안에 이미지가 모두 로드가 되었을때 magicGrid를 다시 포지셔닝 하기위해 추가
+/**
+*masonrys안에 이미지가 모두 로드가 되었을때 magicGrid를 다시 포지셔닝 하기위해 추가
+*/
 for (let i = 0; i < masonrys.length; i++) {
     masonrys[i].addEventListener('load', function (){
         magicGrid.positionItems();

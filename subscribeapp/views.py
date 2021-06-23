@@ -36,7 +36,7 @@ class SubscriptionListView(ListView):
     context_object_name = 'article_list'
     template_name = 'subscribeapp/list.html'
     paginate_by = 5
-    # values_list 어떤값을 리스트화시키는 함수
+    # values_list 어떤값을 리스트화시키는 함수, 언더바가 2개 있으면 어떠한 함수임 project__in은 project 안에 projects를 찾는 함수
     def get_queryset(self):
         projects = Subscription.objects.filter(user=self.request.user).values_list('project')
         article_list = Article.objects.filter(project__in=projects)
